@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" isELIgnored="false"
     pageEncoding="ISO-8859-1"%>
     <%@taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -18,35 +18,33 @@
     <li class="active"><a href="home"><span class="glyphicon glyphicon-home"></span>HOME</a></li>
     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">CATEGORY <span class="caret"></span></a>
   <ul class="dropdown-menu">
-    <li><a href="#">AUDI</a></li> <li><a href="#">BENTELY</a></li>
+    <li><a href="#">AUDI</a></li> 
     <li><a href="#">BMW</a></li>
     <li><a href="#">JAGUAR</a></li>
     <li><a href="#">LAMBORGHINI</a></li>
     <li><a href="#">MERCEDES BENZ</a></li>
     <li><a href="#">ROLLSROYALS</a></li>
-    </ul>       
+   
+    </ul>  
+     <li>${sessionScope.username}</li>     
     <li><a href="aboutus">ABOUT US</a></li> 
 </ul>
   
-  <c:if test="${sessionScope.username eq null }">
- 
+  <c:if test="${sessionScope.username eq null}">
     <ul class="nav navbar-nav navbar-right">
     <li><a href="register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
     <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>  
   </ul>
   </c:if>
    
-  
-  <c:if test="${sessionScope.username ne null }">
-  <h1>Welcome,"${sessionScope.username}"</h1>
- <ul class="nav navbar-nav navbar-right">
-  
-  <li><a href="logout"><span class="glyphicon glyphicon-log-out"></span> logout</a></li>
+   <c:if test="${sessionScope.username ne null}">
+   <ul class="nav navbar-nav navbar-right">
+   <h1>Welcome,"${sessionScope.username}"</h1>
+   <li><a href="logout"><span class="glyphicon glyphicon-log-out"></span>logout</a></li>
    </ul>
+ </c:if>
  
-  </c:if>
-  
-
+</div>
 </nav>
 
 </body>

@@ -42,6 +42,7 @@ public class Carcontroller {
     public ModelAndView home() {
 	    return new ModelAndView("home");
 	}
+
 	@RequestMapping("/signin")
     public String register() {
 	    return "signin";
@@ -57,6 +58,11 @@ public class Carcontroller {
 	@RequestMapping("/aboutus")
     public ModelAndView about() {
 	    return new ModelAndView("aboutus");
+	} 
+	@RequestMapping("/logout")
+    public ModelAndView logout() {
+		session.invalidate();
+	    return new ModelAndView("home");
 	} 
 	
 	
@@ -83,7 +89,7 @@ public class Carcontroller {
 	      @RequestMapping(value = "/loginenter", method = RequestMethod.POST)
 	      public String print(HttpServletRequest req)throws ServletException,IOException
 		   {
-	    		session=req.getSession(true);
+	    		session=req.getSession();
 	    	  String dis = "";
 	    	  List<UserModel> list =ud.getuser(req.getParameter ("usr"),req.getParameter ("pwd"));
 	    	  System.out.println(list);
@@ -93,6 +99,7 @@ public class Carcontroller {
 	    			  if(u.getRoleid().equals("ROLE_ADMIN"))
 	    			  {
 	    					dis= "admin";
+	    					 session.setAttribute("username", u.getUsername());
 	    					}
 	    					
 	    					else if(u.getRoleid().equals("ROLE_USER")){
