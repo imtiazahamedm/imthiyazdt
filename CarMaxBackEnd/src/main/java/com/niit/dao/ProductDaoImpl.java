@@ -3,8 +3,10 @@ package com.niit.dao;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -75,6 +77,20 @@ public void update(Product pid)
 	
 }
 
+
+
+@SuppressWarnings("unchecked")
+@Transactional
+public List<Product> prod(String category) {
+	
+	Session session=this.sessionfactory.openSession();
+	Criteria criteria = session.createCriteria(Product.class);
+	criteria.add(Restrictions.eq("category",category));
+	
+	List<Product> list1=criteria.list();
+	System.out.println(list1);
+	return list1;
+}
 	
 	
 	}

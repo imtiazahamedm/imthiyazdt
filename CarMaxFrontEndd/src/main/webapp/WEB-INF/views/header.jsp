@@ -16,7 +16,7 @@
    
 <ul class="nav navbar-nav">
     <li class="active"><a href="home"><span class="glyphicon glyphicon-home"></span>HOME</a></li>
-    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">CATEGORY <span class="caret"></span></a>
+    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="category">CATEGORY <span class="caret"></span></a>
   <ul class="dropdown-menu">
     <li><a href="#">AUDI</a></li> 
     <li><a href="#">BMW</a></li>

@@ -11,5 +11,6 @@ public interface ProductDao {
     public void insert(Product obj);
 	public void delete(int pid);
 	public Product getproductsbyid(int pid);
+    public List<Product> prod (String category);
 	 
 }
