@@ -35,7 +35,9 @@ public class Carcontroller {
 	    
 	
 	@RequestMapping("/")
-    public ModelAndView helloworld() {
+    public ModelAndView helloworld(HttpSession session) {
+		String username=(String) session.getAttribute("username");
+		System.out.println(username);
 	    return new ModelAndView("home");  
 	  }
 	@RequestMapping("/home")
@@ -55,7 +57,10 @@ public class Carcontroller {
     public ModelAndView login() {
 	    return new ModelAndView("log");
 	}
-	@RequestMapping("/aboutus")
+	
+	
+	
+	  @RequestMapping("/aboutus")
     public ModelAndView about() {
 	    return new ModelAndView("aboutus");
 	} 

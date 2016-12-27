@@ -2,6 +2,8 @@ package com.CarMaxFrontEndd.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,9 +22,6 @@ import com.niit.dao.ProductDao;
 public class Productcontroller {
 
 	private ProductDao pd;
-
-	
-
 	@SuppressWarnings("resource")
 	public Productcontroller() {
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
@@ -30,6 +29,17 @@ public class Productcontroller {
 		context.refresh();
 		pd = ((ProductDao) context.getBean("pdao"));
 	}
+	@RequestMapping("/categories")
+    public ModelAndView printListcust(HttpServletRequest request){
+		
+		List<Product> list1=pd.prod(request.getParameter("car"));
+		ModelAndView imtiaz=new ModelAndView("categ");
+		imtiaz.addObject("cat",list1);
+	  return imtiaz;
+	
+	}
+	
+	
 	
 	@RequestMapping(value = "/adminAdd", method = RequestMethod.GET)
 	
